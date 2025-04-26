@@ -1,0 +1,26 @@
+:root {
+  /* Cores */
+  --primary-color: #ff577f;
+  --primary-color-focus: #ff427f;
+  --primary-color-negative: #59323f;
+  --primary-background-color: #01121f;
+  --secondary-background-color: #021a30;
+  --primary-gray: #343b41;
+  --secondary-gray: #868e96;
+  --tertiary-gray: #f8f9fa;
+  --feedback-success: #3fe864;
+  --feedback-error: #e83f5b;
+
+  /* Fontes */
+  --font-primary: "Inter", sans-serif;
+
+  /* Tamanhos de Fonte */
+  --font-size-primary-title: 18px;
+  --font-size-secondary-title: 16px;
+  --font-size-headline: 12px;
+  --font-size-paragraph: 16px;
+
+  /* Pesos da Fonte */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+}

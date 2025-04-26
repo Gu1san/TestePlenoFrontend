@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: var(--font-size-headline);
+  font-weight: var(--font-weight-regular);
+  color: var(--tertiary-gray);
+}
+
+.input,
+.select {
+  width: 100%;
+  font-size: var(--font-size-paragraph);
+  font-weight: var(--font-weight-regular);
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background-color: var(--primary-gray);
+  color: var(--tertiary-gray);
+  outline: none;
+}
+
+.input::placeholder,
+.select::placeholder {
+  color: var(--secondary-gray);
+  font-size: var(--font-size-paragraph);
+}
+
+.input:focus::placeholder {
+  color: var(--tertiary-gray);
+}
+
+.input:focus {
+  border: 1px solid var(--tertiary-gray);
+}
+
+.passwordWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.toggleButton {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* distância da borda direita */
+  transform: translateY(-50%); /* centralizar verticalmente */
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 18px;
+  width: 20px;
+  fill: var(--secondary-gray);
+}
