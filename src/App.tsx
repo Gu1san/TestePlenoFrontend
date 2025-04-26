@@ -1,11 +1,7 @@
+import AppRoutes from "./routes";
+
 function App() {
-  return (
-    <>
-      <div>
-        <h3>Teste Frontend PL </h3>
-      </div>
-    </>
-  );
+  return <AppRoutes />;
 }
 
 export default App;
