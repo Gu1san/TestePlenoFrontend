@@ -64,8 +64,15 @@ function Input({
       )}
 
       {type === "select" && (
-        <select className={styles.select} value={value} onChange={onChange}>
-          <option value="">Selecione uma opção</option>
+        <select
+          className={styles.select}
+          value={value}
+          onChange={onChange}
+          required
+        >
+          <option disabled value="">
+            Selecione uma opção
+          </option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}

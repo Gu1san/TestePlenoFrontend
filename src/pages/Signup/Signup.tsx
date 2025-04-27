@@ -74,9 +74,9 @@ function Signup() {
             value={cargo}
             onChange={(e) => setCargo(e.target.value)}
             options={[
-              { label: "Front-end", value: "front-end" },
-              { label: "Back-end", value: "back-end" },
-              { label: "Fullstack", value: "fullstack" },
+              { label: "Desenvolvedor Front-end", value: "front-end" },
+              { label: "Desenvolvedor Back-end", value: "back-end" },
+              { label: "Desenvolvedor Fullstack", value: "fullstack" },
             ]}
           />
           <Button type="submit">Cadastrar</Button>

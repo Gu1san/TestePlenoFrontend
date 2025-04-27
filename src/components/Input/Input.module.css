@@ -24,7 +24,8 @@
 }
 
 .input::placeholder,
-.select::placeholder {
+.select:invalid,
+.select option:disabled {
   color: var(--secondary-gray);
   font-size: var(--font-size-paragraph);
 }
