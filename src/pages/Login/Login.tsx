@@ -3,7 +3,7 @@ import commonStyles from "../Styles/Common.module.css";
 import logo from "../../assets/capys-logo.png";
 import { useState } from "react";
 import Input from "../../components/Input/Input";
-import Button from "../../components/Buttom/Buttom";
+import Button from "../../components/Button/Button";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ function Login() {
         <form className={commonStyles.form}>
           <Input
             label="Email"
-            type="text"
+            type="email"
             placeholder="Digite aqui seu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

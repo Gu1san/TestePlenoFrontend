@@ -5,7 +5,7 @@ import EyeSlashIcon from "../../assets/eye-slash-solid.svg?react";
 
 interface InputProps {
   label: string;
-  type: "text" | "password" | "select";
+  type: "text" | "email" | "password" | "select";
   placeholder?: string;
   value: string;
   onChange: (
@@ -30,9 +30,9 @@ function Input({
     <div className={styles.container}>
       <label className={styles.label}>{label}</label>
 
-      {type === "text" && (
+      {(type === "text" || type === "email") && (
         <input
-          type="text"
+          type={type}
           className={styles.input}
           placeholder={placeholder}
           value={value}
