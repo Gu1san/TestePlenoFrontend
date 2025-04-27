@@ -1,19 +1,20 @@
-import styles from "./Login.module.css";
+import loginStyles from "./Login.module.css";
+import commonStyles from "../Styles/Common.module.css";
 import logo from "../../assets/capys-logo.png";
 import { useState } from "react";
 import Input from "../../components/Input/Input";
+import Button from "../../components/Buttom/Buttom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [role, setRole] = useState("");
 
   return (
-    <div className={styles.container}>
-      <img src={logo} alt="Logo da Capys" className={styles.logo} />
-      <div className={styles.formContainer}>
-        <h1 className={styles.title}>Login</h1>
-        <form className={styles.form}>
+    <div className={commonStyles.container}>
+      <img src={logo} alt="Logo da Capys" className={loginStyles.logo} />
+      <div className={commonStyles.formContainer}>
+        <h1 className={commonStyles.title}>Login</h1>
+        <form className={commonStyles.form}>
           <Input
             label="Email"
             type="text"
@@ -29,8 +30,15 @@ function Login() {
             value={senha}
             onChange={(e) => setSenha(e.target.value)}
           />
-
-          <button type="submit">Entrar</button>
+          <Button type="submit">Entrar</Button>
+          <div className={loginStyles.signupContainer}>
+            <p className={loginStyles.signupTitle}>
+              Ainda não possui uma conta?
+            </p>
+            <Button variant="secondary" type="button">
+              Cadastre-se
+            </Button>
+          </div>
         </form>
       </div>
     </div>

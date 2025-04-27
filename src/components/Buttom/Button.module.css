@@ -1,0 +1,31 @@
+.button {
+  width: 100%;
+  padding: 10px;
+  font-size: var(--font-size-paragraph);
+  font-weight: var(--font-weight-regular);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  color: var(--tertiary-gray);
+}
+
+.primary {
+  background-color: var(--primary-color);
+}
+
+.secondary {
+  background-color: var(--secondary-gray);
+}
+
+.disabled {
+  background-color: var(--primary-color-negative);
+}
+
+.primary:hover,
+.disabled:hover {
+  background-color: var(--primary-color-focus);
+}
+
+.secondary:hover {
+  background-color: var(--primary-gray);
+}

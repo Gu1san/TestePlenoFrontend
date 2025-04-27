@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .label {
@@ -46,12 +46,13 @@
 .toggleButton {
   position: absolute;
   top: 50%;
-  right: 10px; /* distância da borda direita */
-  transform: translateY(-50%); /* centralizar verticalmente */
+  right: 10px;
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
   height: 18px;
-  width: 20px;
+  width: 14px;
+  object-fit: contain;
   fill: var(--secondary-gray);
 }
