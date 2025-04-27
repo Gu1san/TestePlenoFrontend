@@ -4,6 +4,9 @@ import commonStyles from "../Styles/Common.module.css";
 import logo from "../../assets/capys-logo.png";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import Toast from "../../components/Toast/Toast";
+import CheckIcon from "../../assets/check-solid.svg?react";
+import ExclamationIcon from "../../assets/exclamation-triangle-solid.svg?react";
 
 function Signup() {
   const [nome, setNome] = useState("");
@@ -13,6 +16,12 @@ function Signup() {
   const [bio, setBio] = useState("");
   const [contato, setContato] = useState("");
   const [cargo, setCargo] = useState("");
+
+  const [showToast, setShowToast] = useState(false);
+
+  const handleRegister = () => {
+    setShowToast(true);
+  };
 
   return (
     <div className={commonStyles.container}>
@@ -79,9 +88,20 @@ function Signup() {
               { label: "Desenvolvedor Fullstack", value: "fullstack" },
             ]}
           />
-          <Button type="submit">Cadastrar</Button>
+          <Button type="submit" onClick={handleRegister}>
+            Cadastrar
+          </Button>
         </form>
       </div>
+      {showToast && (
+        <Toast
+          type="error"
+          message="Cadastro realizado com sucesso!"
+          image={<CheckIcon />}
+          duration={3000}
+          onClose={() => setShowToast(false)}
+        />
+      )}
     </div>
   );
 }
