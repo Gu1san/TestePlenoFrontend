@@ -1,0 +1,17 @@
+.logo {
+  width: 40%;
+  margin-bottom: -10px;
+  max-width: 217px;
+  object-fit: cover;
+  max-height: 150px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 370px;
+  background-color: transparent;
+}

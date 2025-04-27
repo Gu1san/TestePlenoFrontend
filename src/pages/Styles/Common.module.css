@@ -6,6 +6,9 @@
   background-color: var(--primary-background-color);
   justify-content: flex-start;
   align-items: center;
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
 }
 
 .formContainer {
