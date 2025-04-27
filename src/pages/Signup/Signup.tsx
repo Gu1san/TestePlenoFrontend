@@ -7,6 +7,7 @@ import Button from "../../components/Button/Button";
 import Toast from "../../components/Toast/Toast";
 import CheckIcon from "../../assets/check-solid.svg?react";
 import ExclamationIcon from "../../assets/exclamation-triangle-solid.svg?react";
+import Header from "../../components/Header/Header";
 
 function Signup() {
   const [nome, setNome] = useState("");
@@ -25,11 +26,8 @@ function Signup() {
 
   return (
     <div className={commonStyles.container}>
-      <div className={signupStyles.header}>
-        <img src={logo} alt="Logo da Capys" className={signupStyles.logo} />
-        <Button type="button" variant="tertiary">
-          Voltar
-        </Button>
+      <div className={signupStyles.headerContainer}>
+        <Header />
       </div>
       <div className={commonStyles.formContainer}>
         <h1 className={commonStyles.title}>Crie sua conta</h1>
