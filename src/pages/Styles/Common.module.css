@@ -37,3 +37,11 @@
   width: 100%;
   gap: 18px;
 }
+
+@media (max-width: 768px) {
+  .formContainer {
+    max-width: 90%;
+    padding: 33px 17px;
+    gap: 17px;
+  }
+}

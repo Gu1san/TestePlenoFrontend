@@ -2,3 +2,9 @@
   width: 100%;
   max-width: 370px;
 }
+
+@media (max-width: 768px) {
+  .headerContainer {
+    max-width: 90%;
+  }
+}
