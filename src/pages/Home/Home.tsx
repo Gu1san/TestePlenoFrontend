@@ -1,13 +1,15 @@
 import Header from "../../components/Header/Header";
 import homeStyles from "./Home.module.css";
 import commonStyles from "../Styles/Common.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div className={`${commonStyles.container} ${homeStyles.container}`}>
       <div className={homeStyles.headerContainer}>
         <div className={homeStyles.headerSubcontainer}>
-          <Header />
+          <Header buttonText="Sair" onClick={() => navigate("/")} />
         </div>
         <div className={homeStyles.userContainer}>
           <p className={commonStyles.title}>Olá Fulano</p>

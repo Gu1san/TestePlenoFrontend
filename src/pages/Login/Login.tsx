@@ -4,10 +4,13 @@ import logo from "../../assets/capys-logo.png";
 import { useState } from "react";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+
+  const navigate = useNavigate();
 
   return (
     <div className={commonStyles.container}>
@@ -35,7 +38,11 @@ function Login() {
             <p className={loginStyles.signupTitle}>
               Ainda não possui uma conta?
             </p>
-            <Button variant="secondary" type="button">
+            <Button
+              onClick={() => navigate("/signup")}
+              variant="secondary"
+              type="button"
+            >
               Cadastre-se
             </Button>
           </div>

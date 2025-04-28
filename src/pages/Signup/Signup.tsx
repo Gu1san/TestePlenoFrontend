@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import signupStyles from "./Signup.module.css";
 import commonStyles from "../Styles/Common.module.css";
-import logo from "../../assets/capys-logo.png";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import Toast from "../../components/Toast/Toast";
@@ -20,8 +20,19 @@ function Signup() {
 
   const [showToast, setShowToast] = useState(false);
 
-  const handleRegister = () => {
+  const navigate = useNavigate();
+
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault(); // Impede o formulário de recarregar a página
+
+    // TODO: Aqui você poderá adicionar a lógica de envio dos dados para uma API
+
     setShowToast(true);
+
+    // Simular sucesso e redirecionar depois de um tempo
+    setTimeout(() => {
+      navigate("/home");
+    }, 2000);
   };
 
   return (
@@ -31,7 +42,7 @@ function Signup() {
       </div>
       <div className={commonStyles.formContainer}>
         <h1 className={commonStyles.title}>Crie sua conta</h1>
-        <form className={commonStyles.form}>
+        <form className={commonStyles.form} onSubmit={handleRegister}>
           <Input
             label="Nome"
             type="text"
@@ -86,17 +97,16 @@ function Signup() {
               { label: "Desenvolvedor Fullstack", value: "fullstack" },
             ]}
           />
-          <Button type="submit" onClick={handleRegister}>
-            Cadastrar
-          </Button>
+          <Button type="submit">Cadastrar</Button>
         </form>
       </div>
+
       {showToast && (
         <Toast
-          type="error"
+          type="success"
           message="Cadastro realizado com sucesso!"
           image={<CheckIcon />}
-          duration={3000}
+          duration={2000}
           onClose={() => setShowToast(false)}
         />
       )}
