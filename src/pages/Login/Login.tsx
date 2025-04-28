@@ -24,7 +24,7 @@ function Login() {
     e.preventDefault();
     try {
       const data = await loginService({ email, password });
-      login(data.user); // salva no contexto
+      login(data); // salva no contexto
       navigate("/home"); // navega para home
     } catch (error) {
       setToastType("error");

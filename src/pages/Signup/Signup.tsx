@@ -35,7 +35,7 @@ function Signup() {
         contact,
         role,
       });
-      login(data.user); // salva no contexto
+      login(data); // salva no contexto
       setToastType("success");
       setTimeout(() => {
         navigate("/home");
