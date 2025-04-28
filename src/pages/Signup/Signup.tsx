@@ -5,34 +5,49 @@ import commonStyles from "../Styles/Common.module.css";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import Toast from "../../components/Toast/Toast";
-import CheckIcon from "../../assets/check-solid.svg?react";
-import ExclamationIcon from "../../assets/exclamation-triangle-solid.svg?react";
 import Header from "../../components/Header/Header";
+import { useAuth } from "../../contexts/AuthContext";
+import { signup as signupService } from "../../services/authService";
 
 function Signup() {
-  const [nome, setNome] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [confirmarSenha, setConfirmarSenha] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [bio, setBio] = useState("");
-  const [contato, setContato] = useState("");
-  const [cargo, setCargo] = useState("");
+  const [contact, setContact] = useState("");
+  const [role, setRole] = useState("");
 
   const [showToast, setShowToast] = useState(false);
+  const [toastType, setToastType] = useState<"success" | "error">("success");
 
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const handleRegister = (e: React.FormEvent) => {
-    e.preventDefault(); // Impede o formulário de recarregar a página
-
-    // TODO: Aqui você poderá adicionar a lógica de envio dos dados para uma API
-
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const data = await signupService({
+        name,
+        email,
+        password,
+        bio,
+        contact,
+        role,
+      });
+      login(data.user); // salva no contexto
+      setToastType("success");
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
+    } catch (error) {
+      setToastType("error");
+      setTimeout(() => {
+        setShowToast(false);
+      }, 2000);
+      console.error("Erro ao cadastrar", error);
+    }
     setShowToast(true);
-
-    // Simular sucesso e redirecionar depois de um tempo
-    setTimeout(() => {
-      navigate("/home");
-    }, 2000);
   };
 
   return (
@@ -47,8 +62,8 @@ function Signup() {
             label="Nome"
             type="text"
             placeholder="Digite seu nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <Input
             label="Email"
@@ -61,15 +76,15 @@ function Signup() {
             label="Senha"
             type="text"
             placeholder="Digite sua senha"
-            value={senha}
-            onChange={(e) => setSenha(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <Input
             label="Confirmar senha"
             type="text"
             placeholder="Confirme sua senha"
-            value={confirmarSenha}
-            onChange={(e) => setConfirmarSenha(e.target.value)}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           <Input
             label="Bio"
@@ -82,15 +97,15 @@ function Signup() {
             label="Contato"
             type="text"
             placeholder="Digite seu contato"
-            value={contato}
-            onChange={(e) => setContato(e.target.value)}
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
           />
           <Input
             label="Selecionar Cargo"
             type="select"
             placeholder="Selecione um cargo"
-            value={cargo}
-            onChange={(e) => setCargo(e.target.value)}
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
             options={[
               { label: "Desenvolvedor Front-end", value: "front-end" },
               { label: "Desenvolvedor Back-end", value: "back-end" },
@@ -103,9 +118,12 @@ function Signup() {
 
       {showToast && (
         <Toast
-          type="success"
-          message="Cadastro realizado com sucesso!"
-          image={<CheckIcon />}
+          type={toastType}
+          message={
+            toastType === "success"
+              ? "Cadastro realizado com sucesso!"
+              : "Ops! Algo deu errado"
+          }
           duration={2000}
           onClose={() => setShowToast(false)}
         />

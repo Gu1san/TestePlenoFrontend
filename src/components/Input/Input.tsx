@@ -13,6 +13,7 @@ interface InputProps {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLSelectElement>
   ) => void;
+  required?: boolean;
   options?: { value: string; label: string }[]; // No caso do tipo select
 }
 
@@ -22,6 +23,7 @@ function Input({
   placeholder,
   value,
   onChange,
+  required = true,
   options = [],
 }: InputProps) {
   const [showPassword, setShowPassword] = useState(false);
@@ -37,6 +39,7 @@ function Input({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          required={required}
         />
       )}
 
@@ -48,6 +51,7 @@ function Input({
             placeholder={placeholder}
             value={value}
             onChange={onChange}
+            required
           />
           <button
             type="button"
@@ -68,7 +72,7 @@ function Input({
           className={styles.select}
           value={value}
           onChange={onChange}
-          required
+          required={required}
         >
           <option disabled value="">
             Selecione uma opção

@@ -2,9 +2,11 @@ import Header from "../../components/Header/Header";
 import homeStyles from "./Home.module.css";
 import commonStyles from "../Styles/Common.module.css";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Home() {
   const navigate = useNavigate();
+  const { user } = useAuth();
   return (
     <div className={`${commonStyles.container} ${homeStyles.container}`}>
       <div className={homeStyles.headerContainer}>
@@ -12,8 +14,10 @@ function Home() {
           <Header buttonText="Sair" onClick={() => navigate("/")} />
         </div>
         <div className={homeStyles.userContainer}>
-          <p className={commonStyles.title}>Olá Fulano</p>
-          <p className={homeStyles.subtitle}>Dev sla</p>
+          <p className={commonStyles.title}>
+            Olá{user?.name !== undefined ? ", " + user.name : ""}
+          </p>
+          <p className={homeStyles.subtitle}>{user?.role}</p>
         </div>
       </div>
       <div className={homeStyles.mainContainer}>

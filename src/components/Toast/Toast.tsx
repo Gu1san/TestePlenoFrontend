@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import styles from "./Toast.module.css";
+import CheckIcon from "../../assets/check-solid.svg?react";
+import ExclamationIcon from "../../assets/exclamation-solid.svg?react";
 
 function Toast({
   message,
-  image,
   duration = 3000,
   onClose,
   type,
 }: {
   message: string;
-  image: React.ReactNode;
   duration?: number;
   onClose?: () => void;
   type: "success" | "error";
@@ -45,7 +45,9 @@ function Toast({
 
   return (
     <div className={styles.toast}>
-      <div className={`${styles.toastImage} ${styles[type]}`}>{image}</div>
+      <div className={`${styles.toastImage} ${styles[type]}`}>
+        {type === "success" ? <CheckIcon /> : <ExclamationIcon />}
+      </div>
       <div className={styles.toastContent}>
         <p className={styles.toastMessage}>{message}</p>
         <button
