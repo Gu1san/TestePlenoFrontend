@@ -13,6 +13,10 @@
   background-color: var(--primary-color);
 }
 
+.primary:disabled {
+  background-color: var(--primary-color-negative);
+}
+
 .secondary {
   background-color: var(--secondary-gray);
 }

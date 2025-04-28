@@ -3,6 +3,13 @@
   max-width: 370px;
 }
 
+.subtitle {
+  font-size: var(--font-size-headline);
+  font-weight: var(--font-weight-regular);
+  color: var(--secondary-gray);
+  margin-top: -10px;
+}
+
 @media (max-width: 768px) {
   .headerContainer {
     max-width: 90%;

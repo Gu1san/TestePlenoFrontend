@@ -50,6 +50,16 @@ function Signup() {
     setShowToast(true);
   };
 
+  const isFormValid =
+    name.trim() !== "" &&
+    email.trim() !== "" &&
+    password.trim() !== "" &&
+    confirmPassword.trim() !== "" &&
+    bio.trim() !== "" &&
+    contact.trim() !== "" &&
+    role.trim() !== "" &&
+    password === confirmPassword;
+
   return (
     <div className={commonStyles.container}>
       <div className={signupStyles.headerContainer}>
@@ -57,6 +67,7 @@ function Signup() {
       </div>
       <div className={commonStyles.formContainer}>
         <h1 className={commonStyles.title}>Crie sua conta</h1>
+        <h2 className={signupStyles.subtitle}>Rápido e grátis, vamos nessa</h2>
         <form className={commonStyles.form} onSubmit={handleRegister}>
           <Input
             label="Nome"
@@ -112,7 +123,9 @@ function Signup() {
               { label: "Desenvolvedor Fullstack", value: "fullstack" },
             ]}
           />
-          <Button type="submit">Cadastrar</Button>
+          <Button type="submit" disabled={!isFormValid}>
+            Cadastrar
+          </Button>
         </form>
       </div>
 
