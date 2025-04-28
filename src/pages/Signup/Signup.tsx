@@ -97,6 +97,11 @@ function Signup() {
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
+          {password !== confirmPassword && confirmPassword && (
+            <p className={signupStyles.errorMessage}>
+              As senhas não coincidem.
+            </p>
+          )}
           <Input
             label="Bio"
             type="text"

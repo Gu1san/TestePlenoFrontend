@@ -10,6 +10,13 @@
   margin-top: -10px;
 }
 
+.errorMessage {
+  font-size: var(--font-size-headline);
+  font-weight: var(--font-weight-regular);
+  color: var(--feedback-error);
+  margin-top: -10px;
+}
+
 @media (max-width: 768px) {
   .headerContainer {
     max-width: 90%;
