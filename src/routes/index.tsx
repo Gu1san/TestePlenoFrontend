@@ -5,6 +5,8 @@ import Signup from "../pages/Signup/Signup";
 
 function AppRoutes() {
   return (
+    // Antes era usado BrowserRouter, mas isso não permitia que a tela fosse carregada, apenas o background color
+    // Usando o HashRouter, o problema foi resolvido no SCORM cloud, mas no avamec não é mais possível fazer o upload
     <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
